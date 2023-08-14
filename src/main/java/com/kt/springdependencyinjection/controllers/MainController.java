@@ -1,5 +1,6 @@
 package com.kt.springdependencyinjection.controllers;
 
+import com.kt.springdependencyinjection.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -8,7 +9,14 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MainController {
 
+    private final GreetingService greetingService;
+
+    //@Autowired                // @Autowired not needed on Constructor
+    public MainController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
     public String sayHello() {
-        return "hello";
+        return greetingService.sayGreeting();
     }
 }
