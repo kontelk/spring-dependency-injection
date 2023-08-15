@@ -1,9 +1,6 @@
 package com.kt.springdependencyinjection;
 
-import com.kt.springdependencyinjection.controllers.ConstructorInjectedController;
-import com.kt.springdependencyinjection.controllers.MainController;
-import com.kt.springdependencyinjection.controllers.PropertyInjectedController;
-import com.kt.springdependencyinjection.controllers.SetterInjectedController;
+import com.kt.springdependencyinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -31,5 +28,13 @@ public class SpringDependencyInjectionApplication {
         System.out.println("----------ConstructorInjectedController----------");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+        System.out.println("----------I18nController----------");
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
+
+        PetController petController = ctx.getBean("petController", PetController.class);
+        System.out.println("--- The Best Pet is ---");
+        System.out.println(petController.whichPetIsTheBest());
     }
 }
