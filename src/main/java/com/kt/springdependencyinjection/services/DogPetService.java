@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 /**
  * Created by kontelk on 8/15/23.
  */
-@Profile({"dog", "default"})
 @Service("petService")
+@Profile({"dog", "default"})
 public class DogPetService implements PetService {
 
     @Override
@@ -15,3 +15,4 @@ public class DogPetService implements PetService {
         return "Dogs are the best!";
     }
 }
+
