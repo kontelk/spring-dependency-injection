@@ -10,8 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * Created by kontelk on 8/20/23.
  */
-@PropertySource(("classpath:datasource.properties"))
-@ImportResource("classpath:sdi-config.xml")
+//@PropertySource(("classpath:datasource.properties"))    // <-- Spring Boot does that for us automaticaly
+//@ImportResource("classpath:sdi-config.xml")             //     the same with this file
 @Configuration
 public class ServiceConfig {
 
