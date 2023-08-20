@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active:
+      - en
+      - cat
+      - qa
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+database:
+  username: prodDbUsername
+  password: prodDbPassword
+  jdbcurl: ymlJdbcUrl
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+database:
+  username: devDbUsername
+  password: devDbPassword
+  jdbcurl: ymlJdbcUrl
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+database:
+  username: qaDbUsername
+  password: qaDbPassword
+  jdbcurl: ymlJdbcUrl

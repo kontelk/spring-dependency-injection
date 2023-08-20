@@ -1,5 +1,7 @@
 package com.kt.springdependencyinjection;
 
+import com.kt.springdependencyinjection.config.SdiConfiguration;
+import com.kt.springdependencyinjection.config.SdiConstructorConfig;
 import com.kt.springdependencyinjection.controllers.*;
 import com.kt.springdependencyinjection.datasource.ExampleDataSource;
 import org.springframework.boot.SpringApplication;
@@ -43,9 +45,22 @@ public class SpringDependencyInjectionApplication {
 
         System.out.println("----------ExampleDataSource----------");
         ExampleDataSource exampleDataSource = ctx.getBean("exampleDataSource" ,ExampleDataSource.class);
-        System.out.println("username = " + exampleDataSource.getUsername());
-        System.out.println("password = " + exampleDataSource.getPassword());
-        System.out.println("jdbcurl = " + exampleDataSource.getJdbcurl());
+        System.out.println(exampleDataSource.getUsername());
+        System.out.println(exampleDataSource.getPassword());
+        System.out.println(exampleDataSource.getJdbcurl());
+
+        System.out.println("----------- Config Props Binding -----------");
+        SdiConfiguration sdiConfiguration = ctx.getBean(SdiConfiguration.class);
+        System.out.println(sdiConfiguration.getUsername());
+        System.out.println(sdiConfiguration.getPassword());
+        System.out.println(sdiConfiguration.getJdbcurl());
+
+        System.out.println("----------- Config Contructor Binding -----------");
+        SdiConstructorConfig sdiConstructorConfig = ctx.getBean(SdiConstructorConfig.class);
+        System.out.println(sdiConstructorConfig.getUsername());
+        System.out.println(sdiConstructorConfig.getPassword());
+        System.out.println(sdiConstructorConfig.getJdbcurl());
+
 
     }
 }
